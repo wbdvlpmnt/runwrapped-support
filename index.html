@@ -256,6 +256,12 @@
       }
 
       /* Responsive */
+      @media (max-width: 992px) {
+        .workflow-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
       @media (max-width: 768px) {
         h1 {
           font-size: 36px;
@@ -265,6 +271,9 @@
         }
         .privacy-banner {
           padding: 40px 24px;
+        }
+        .workflow-grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -293,7 +302,7 @@
         <h1>Turn your run into a cinematic reel</h1>
         <p>
           Select a run, pick a style, add a photo, and create a shareable video
-          of your run with visuals and summary.
+          of your run in seconds.
         </p>
       </header>
 
@@ -311,9 +320,7 @@
           </div>
           <div
             class="feature-image"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=400&q=80');
-            "
+            style="background-image: url('images/run-select.jpeg')"
           ></div>
         </div>
 
@@ -328,26 +335,33 @@
           </div>
           <div
             class="feature-image"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=400&q=80');
-            "
+            style="background-image: url('images/style-select.jpeg')"
           ></div>
         </div>
 
         <div class="step-card reveal">
           <div>
             <div class="step-num">03</div>
+            <h3>Add Photo</h3>
+            <p>Add an optional photo to personalize your video.</p>
+          </div>
+          <div
+            class="feature-image"
+            style="background-image: url('images/photo-select.jpeg')"
+          ></div>
+        </div>
+
+        <div class="step-card reveal">
+          <div>
+            <div class="step-num">04</div>
             <h3>Export & Share</h3>
             <p>
-              Add an optional photo, preview your video, and share it with
-              friends or on social media.
+              Preview your video, and share it with friends or on social media.
             </p>
           </div>
           <div
             class="feature-image"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1530143311094-34d807799e8f?auto=format&fit=crop&w=400&q=80');
-            "
+            style="background-image: url('images/reel-preview.jpeg')"
           ></div>
         </div>
       </div>
@@ -392,7 +406,7 @@
         <p style="color: var(--text-sub); margin-top: 8px">
           Our team is ready to assist you.
         </p>
-        <a href="mailto:support@runwrapped.com" class="btn-contact"
+        <a href="mailto:jai.gokhale5219@gmail.com" class="btn-contact"
           >Email Support</a
         >
       </div>
