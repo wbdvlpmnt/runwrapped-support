@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RunWrapped Support</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --system-bg: #ffffff;
+        --secondary-bg: #f5f5f7;
+        --text-main: #1d1d1f;
+        --text-sub: #6e6e73;
+        --accent-purple: #9333ea;
+        --accent-pink: #ec4899;
+        --accent-orange: #f97316;
+        --brand-gradient: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-pink),
+          var(--accent-orange)
+        );
+        --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--system-bg);
+        color: var(--text-main);
+        line-height: 1.47;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header & Branding */
+      .nav-brand {
+        padding: 30px 0;
+        text-align: center;
+      }
+      .brand-dot {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        background: var(--brand-gradient);
+        margin-right: 8px;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 60px 0 80px;
+      }
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+      .hero p {
+        font-size: 22px;
+        color: var(--text-sub);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Workflow Section */
+      .section-label {
+        text-align: center;
+        font-weight: 600;
+        color: var(--accent-pink);
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        margin-bottom: 40px;
+      }
+
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-bottom: 100px;
+      }
+
+      .step-card {
+        background: var(--secondary-bg);
+        border-radius: 24px;
+        padding: 40px;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 320px;
+        box-shadow: var(--card-shadow);
+      }
+
+      .step-card:hover {
+        transform: translateY(-5px);
+      }
+      .step-num {
+        font-weight: 700;
+        color: var(--text-sub);
+        opacity: 0.3;
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      .step-card h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      .step-card p {
+        color: var(--text-sub);
+        font-size: 16px;
+      }
+
+      .feature-image {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+        margin-top: 24px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Privacy Banner */
+      .privacy-banner {
+        background: var(--secondary-bg);
+        border-radius: 32px;
+        padding: 60px;
+        text-align: center;
+        margin: 80px 0;
+      }
+      .privacy-banner h2 {
+        font-size: 36px;
+        margin-bottom: 16px;
+      }
+      .privacy-banner h2 span {
+        background: var(--brand-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .privacy-banner p {
+        font-size: 19px;
+        color: var(--text-sub);
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* FAQ */
+      .faq-list {
+        max-width: 700px;
+        margin: 0 auto 100px;
+      }
+      .faq-item {
+        border-bottom: 1px solid #d2d2d7;
+        padding: 24px 0;
+      }
+      .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        font-size: 19px;
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+        color: var(--text-main);
+      }
+      .faq-trigger {
+        width: 100%;
+        text-align: left;
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--text-main);
+        background: var(--secondary-bg);
+        border: 1px solid #d2d2d7;
+        border-radius: 12px;
+        padding: 16px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s, transform 0.2s;
+      }
+
+      .faq-trigger:hover {
+        background: #e9e9eb;
+        transform: translateY(-2px);
+      }
+
+      .faq-trigger i {
+        margin-left: 12px;
+        color: var(--accent-pink);
+        transition: transform 0.2s;
+      }
+
+      .faq-item.active .faq-trigger i {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        color: var(--text-sub);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 150px;
+        margin-top: 16px;
+      }
+
+      /* Contact Section */
+      .contact-footer {
+        text-align: center;
+        padding: 100px 0;
+        background: var(--secondary-bg);
+        border-radius: 40px;
+      }
+      .btn-contact {
+        display: inline-block;
+        background: var(--text-main);
+        color: white;
+        padding: 18px 36px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        margin-top: 24px;
+        transition: all 0.2s;
+      }
+      .btn-contact:hover {
+        transform: scale(1.05);
+        background: #333;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 36px;
+        }
+        .hero p {
+          font-size: 18px;
+        }
+        .privacy-banner {
+          padding: 40px 24px;
+        }
+      }
+
+      /* Reveal Animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav-brand">
+        <span class="brand-dot"></span>
+        <span style="font-weight: 600; letter-spacing: -0.5px"
+          >RunWrapped Support</span
+        >
+      </div>
+
+      <header class="hero reveal">
+        <h1>Turn your run into a cinematic reel</h1>
+        <p>
+          Select a run, pick a style, add a photo, and create a shareable video
+          of your run with visuals and summary.
+        </p>
+      </header>
+
+      <p class="section-label reveal">The Workflow</p>
+
+      <div class="workflow-grid">
+        <div class="step-card reveal">
+          <div>
+            <div class="step-num">01</div>
+            <h3>Connect</h3>
+            <p>
+              Grant read-only access to Apple Health. Works with popular running
+              trackers.
+            </p>
+          </div>
+          <div
+            class="feature-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=400&q=80');
+            "
+          ></div>
+        </div>
+
+        <div class="step-card reveal">
+          <div>
+            <div class="step-num">02</div>
+            <h3>Select & Style</h3>
+            <p>
+              Pick a run and choose a visual theme. Including minimalist and
+              bold themes.
+            </p>
+          </div>
+          <div
+            class="feature-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=400&q=80');
+            "
+          ></div>
+        </div>
+
+        <div class="step-card reveal">
+          <div>
+            <div class="step-num">03</div>
+            <h3>Export & Share</h3>
+            <p>
+              Add an optional photo, preview your video, and share it with
+              friends or on social media.
+            </p>
+          </div>
+          <div
+            class="feature-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1530143311094-34d807799e8f?auto=format&fit=crop&w=400&q=80');
+            "
+          ></div>
+        </div>
+      </div>
+
+      <div class="privacy-banner reveal">
+        <i
+          class="fas fa-shield-alt"
+          style="font-size: 40px; margin-bottom: 20px"
+        ></i>
+        <h2>Privacy is at our <span>core</span>.</h2>
+        <p>
+          RunWrapped processes all video rendering locally on your iPhone. Your
+          health data and GPS routes are never uploaded to our servers.
+        </p>
+      </div>
+
+      <div class="section-label reveal">FAQ</div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-trigger">
+            Which trackers are supported? <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            RunWrapped is tracker-agnostic. As long as your device writes data
+            to Apple Health, we can generate a video for it.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger">
+            What are Premium Styles? <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            Premium Styles offer exclusive backgrounds available via one-time
+            in-app purchase.
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-footer reveal">
+        <h2>Need more help?</h2>
+        <p style="color: var(--text-sub); margin-top: 8px">
+          Our team is ready to assist you.
+        </p>
+        <a href="mailto:support@runwrapped.com" class="btn-contact"
+          >Email Support</a
+        >
+      </div>
+
+      <footer
+        style="
+          padding: 40px 0;
+          text-align: center;
+          color: var(--text-sub);
+          font-size: 13px;
+        "
+      >
+        <p>&copy; 2026 RunWrapped. Built for runners, by runners.</p>
+      </footer>
+    </div>
+
+    <script>
+      // FAQ Accordion
+      document.querySelectorAll(".faq-trigger").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const item = trigger.parentElement;
+          item.classList.toggle("active");
+          const icon = trigger.querySelector("i");
+          icon.classList.toggle("fa-plus");
+          icon.classList.toggle("fa-minus");
+        });
+      });
+
+      // Reveal Animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
